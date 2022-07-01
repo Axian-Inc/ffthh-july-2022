@@ -18,3 +18,33 @@ export function randomBetween(inclusiveMin, exclusiveMax) {
     var value = offset + Math.floor(range * Math.random());
     return value;
 }
+
+// Super simplistic test runner
+export function runTests(tests) {
+    
+    var runTest = function(fn) {
+        try {
+            fn();
+        } catch {
+            console.log("Failed", fn);
+            return false;
+        }
+            console.log("Success", fn);
+        return true;
+    }
+    
+    var results = tests.reduce((r, test) => {
+        var result = runTest(test)
+        if (result) {
+            r.success++
+        } else {
+            r.failed++
+        }
+        return r
+    }, { success: 0, failed: 0 });
+
+    console.log("\nTest Results");
+    console.log("------------");
+    console.log("Success:", results.success);
+    console.log("Failed: ", results.failed);
+}
