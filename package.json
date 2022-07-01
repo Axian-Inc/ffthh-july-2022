@@ -1,0 +1,10 @@
+{
+  "name": "ffthh-func-es",
+  "version": "1.0.0",
+  "description": "Functional Event Sourcing",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  }
+}
